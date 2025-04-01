@@ -539,6 +539,56 @@ strong {
   color: var(--primary-color);
 }
 
+.countdown-wrap {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*---------------------------------------
+  TIMER         
+-----------------------------------------*/
+
+.countdown-section
+{
+    margin-top: 20px;
+    background-image: url('../images/timer.jpg');
+    background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Отключает повторение */
+}
+
+.countdown-wrap {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.time-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 100px;
+    margin-bottom: 15px;
+}
+
+.time-box span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e63946;
+}
+
+.time-box p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
 
 /*---------------------------------------
   GALLERY              
@@ -563,9 +613,10 @@ strong {
   RSVP              
 -----------------------------------------*/
 .rsvp-section {
-  background-image: url('../images/closeup-shot-newlywed-couple-sitting-bench.jpg');
+  background-image: url('../images/grizly-club-p-svadebnii-fon-priroda-8.jpg');
   background-repeat: no-repeat;
   background-position: center;
+  
   background-size: cover;
 }
 
@@ -646,14 +697,35 @@ strong {
   transform: translate(0);
 }
 
+.drink-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.drink-options label {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.drink-options input {
+    margin-right: 8px;
+}
 
 /*---------------------------------------
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-image: url('../images/young-asian-pregnant-couple-using-laptop.jpeg');
+  background-image: url('../images/footer.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center; /* Центрирует изображение */
   padding-top: 150px;
   padding-bottom: 150px;
   text-align: center;

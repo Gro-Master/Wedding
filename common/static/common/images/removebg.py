@@ -1,55 +1,114 @@
-import cv2
 import requests
-import numpy as np
-from PIL import Image, ImageOps
-from io import BytesIO
+from PIL import Image
+# from rembg import remove
 
-# Ваш API-ключ remove.bg
-API_KEY = "YOUR_REMOVE_BG_API_KEY"
+def resize_and_pad_left(input_image_path, sample_image_path, output_image_path):
+    # Открываем образец и входное изображение
+    sample_image = Image.open(sample_image_path)
+    input_image = Image.open(input_image_path).convert("RGBA")  # Открываем с поддержкой прозрачности
 
-def remove_background(image_path):
-    """Удаляет фон с изображения через API remove.bg"""
-    with open(image_path, 'rb') as file:
-        response = requests.post(
-            'https://api.remove.bg/v1.0/removebg',
-            files={'image_file': file},
-            data={'size': 'auto'},
-            headers={'X-Api-Key': API_KEY}
-        )
+    # Получаем размеры образца
+    sample_width, sample_height = sample_image.size
+
+    # Масштабируем входное изображение по высоте образца (с сохранением пропорций)
+    aspect_ratio = input_image.width / input_image.height
+    new_height = sample_height
+    new_width = int(new_height * aspect_ratio)
+    input_image = input_image.resize((new_width, new_height), Image.LANCZOS)
+
+    # Создаем новое изображение с прозрачным фоном
+    new_image = Image.new("RGBA", (sample_width, sample_height), (0, 0, 0, 0))  # Прозрачный фон
+
+    # Вычисляем сдвиг (новое изображение должно быть справа, а слева — прозрачный фон)
+    x_offset = sample_width - new_width  # Смещение по X (заполняем только слева)
+
+    # Вставляем изображение справа
+    new_image.paste(input_image, (x_offset, 0))
+
+    # Сохраняем результат в PNG
+    new_image.save(output_image_path, format="PNG")
+    print(f"Изображение приведено к формату образца и сохранено как {output_image_path}")
+
+def remove_background(input_image_path, output_image_path, api_key):
+    # Открытие изображения
+    with open(input_image_path, 'rb') as image_file:
+        image_data = image_file.read()
+
+    # Отправка изображения на сервер Remove.bg для удаления фона
+    url = 'https://api.remove.bg/v1.0/removebg'
+    response = requests.post(
+        url,
+        files={'image_file': image_data},
+        headers={'X-Api-Key': api_key},
+        stream=True
+    )
+
+    # Проверка ответа от сервера
     if response.status_code == 200:
-        return Image.open(BytesIO(response.content))
+        # Сохранение изображения без фона
+        with open(output_image_path, 'wb') as output_file:
+            output_file.write(response.content)
+        print(f"Фон успешно удален и сохранен в {output_image_path}")
     else:
-        print("Ошибка удаления фона:", response.text)
-        return None
+        print(f"Ошибка: {response.status_code}, {response.text}")
 
-def resize_proportional(image, target_size=(1500, 1000)):
-    """Изменяет размер изображения пропорционально и вписывает в рамки."""
+def remove_bg_local(input_image_path, output_image_path):
+    image = Image.open(input_image_path)
+    output = remove(image)  # Удаляем фон без потери качества
+    output.save(output_image_path, format="PNG")
+    print(f"Фон удален и сохранен в {output_image_path}")
+
+def resize_with_padding(input_image_path, output_image_path, target_width, target_height, background_color=(0, 0, 0, 0)):
+    """
+    Масштабирует изображение до заданного размера (target_width x target_height), сохраняя пропорции.
+    Добавляет фон, если изображение не совпадает по соотношению сторон.
+
+    :param input_image_path: Путь к исходному изображению
+    :param output_image_path: Путь для сохранения результата
+    :param target_width: Желаемая ширина
+    :param target_height: Желаемая высота
+    :param background_color: Цвет фона (по умолчанию прозрачный)
+    """
+    # Открываем изображение
+    image = Image.open(input_image_path).convert("RGBA")
+
     # Исходные размеры
-    w, h = image.size
-    target_w, target_h = target_size
+    original_width, original_height = image.size
 
-    # Вычисляем новый размер, сохраняя пропорции
-    scale = min(target_w / w, target_h / h)
-    new_w, new_h = int(w * scale), int(h * scale)
+    # Вычисляем коэффициент масштабирования (чтобы картинка полностью вписывалась)
+    scale = min(target_width / original_width, target_height / original_height)
+    new_width = int(original_width * scale)
+    new_height = int(original_height * scale)
 
     # Масштабируем изображение
-    image_resized = image.resize((new_w, new_h), Image.LANCZOS)
+    resized_image = image.resize((new_width, new_height), Image.LANCZOS)
 
-    # Создаем новое изображение с нужным размером и вставляем в центр
-    new_image = Image.new("RGBA", (target_w, target_h), (255, 255, 255, 0))  # Прозрачный фон
-    new_image.paste(image_resized, ((target_w - new_w) // 2, (target_h - new_h) // 2))
+    # Создаем новый холст с заданными размерами
+    new_image = Image.new("RGBA", (target_width, target_height), background_color)
 
-    return new_image
+    # Вычисляем координаты для центрирования
+    x_offset = (target_width - new_width) // 2
+    y_offset = (target_height - new_height) // 2
 
-def process_image(image_path, output_path):
-    """Удаляет фон, изменяет размер пропорционально и сохраняет"""
-    img_no_bg = remove_background(image_path)
-    if img_no_bg:
-        img_resized = resize_proportional(img_no_bg, (1500, 1000))
-        img_resized.save(output_path, format="PNG")
-        print(f"Обработанное изображение сохранено как {output_path}")
-    else:
-        print("Не удалось обработать изображение.")
+    # Вставляем масштабированное изображение по центру
+    new_image.paste(resized_image, (x_offset, y_offset), resized_image)
 
-# Использование
-process_image("IMG_9226.jpg", "output.png")
+    # Сохраняем результат в PNG (чтобы сохранить прозрачность)
+    new_image.save(output_image_path, format="PNG")
+    print(f"Изображение сохранено в {output_image_path}")
+
+
+# Пример использования
+input_image_path = 'IMG_9226.png'  # Путь к исходному изображению
+output_image_path = 'output_image.png'  # Путь для сохранения результата
+sample_image_path = 'sample.png' 
+api_key = 'oErv1nSdrzKr9cyazUnU6kx1'  # Ваш API-ключ от remove.bg
+
+# remove_background(input_image_path, output_image_path, api_key)
+
+# resize_and_pad_left(input_image_path, sample_image_path, output_image_path)
+
+# Пример использования
+# remove_bg_local(input_image_path, output_image_path)
+
+resize_with_padding("footer.jpg", "footer_res.jpg", 1000, 400)

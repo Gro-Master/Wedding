@@ -1,28 +1,31 @@
 from django.shortcuts import render
 from django.views import View
-from django.conf import settings
-from common.forms import GuestForm
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 import requests
-
 import logging
-
+from common.forms import GuestForm  # Убедись, что форма импортирована
 
 logger = logging.getLogger(__name__)
 
+# Замените на свои данные
+TELEGRAM_BOT_TOKEN = "7738261243:AAGftaKXWSglJ1hkfKYx5GPYLjGZhf7ngfQ"
+TELEGRAM_CHAT_ID = "-4782301339"
 
-def send_to_telegram(message):
+def send_to_telegram(name, attending, transfer, drinks, message):
+    """Формирует и отправляет сообщение в Telegram."""
+    text = f"📝 Новая анкета:\n\n👤 Имя: {name}\n✅ Придёт: {attending}\n"
+    if attending == "yes":
+        text += f"🚗 Нужен трансфер: {transfer}\n🥂 Напитки: {', '.join(drinks) if drinks else '—'}\n"
+    text += f"💬 Сообщение: {message}"
 
-    url = f'https://api.telegram.org/bot{settings.TOKEN}/sendMessage'
+    telegram_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    response = requests.post(telegram_url, data={"chat_id": TELEGRAM_CHAT_ID, "text": text})
 
-    try:
-        response = requests.post(url, json={'chat_id': settings.CHAT_ID, 'text': message})
-        logger.info(response.text)
-    except Exception as e:
-        msg_error = f"{e}\n{message}"
-        logger.error(msg_error)
+    return response.status_code == 200
 
-
+@method_decorator(csrf_exempt, name="dispatch")  # Отключаем CSRF для формы
 class Invitation(View):
     form_class = GuestForm
     template_name = "main.html"
@@ -32,18 +35,21 @@ class Invitation(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        logger.debug(f"Данные формы: {form.data}")
+
         if form.is_valid():
-            guest = form.save()
-            msg = f"Заполнил анкету {guest.name}\n" \
-                  f"Присутствие: {guest.get_presence_display()}\n" \
-                  f"Напитки: {guest.get_drink_preferences_display()}\n" \
-                  f"Комментарии: {guest.food_wishes}"
-            logger.debug(msg)
-            send_to_telegram(msg)
-            return render(request, self.template_name)
+            name = form.cleaned_data.get("name")
+            attending = form.cleaned_data.get("attending")
+            transfer = form.cleaned_data.get("transfer") if attending == "yes" else None
+            drinks = form.cleaned_data.get("drinks") if attending == "yes" else []
+            message = form.cleaned_data.get("message", "—")
 
-        msg_error = f"{form.errors}\n{form.data}"
-        logger.error(msg_error)
+            logger.debug(f"Отправка анкеты: {name}, присутствие: {attending}, трансфер: {transfer}, напитки: {drinks}, сообщение: {message}")
 
-        return render(request, self.template_name)
+            # Отправляем в Telegram
+            if send_to_telegram(name, attending, transfer, drinks, message):
+                return JsonResponse({"status": "success", "message": "Анкета успешно отправлена!"})
+            else:
+                return JsonResponse({"status": "error", "message": "Ошибка при отправке в Telegram."})
+
+        logger.error(f"Ошибка валидации формы: {form.errors}")
+        return JsonResponse({"status": "error", "message": "Некорректные данные."})

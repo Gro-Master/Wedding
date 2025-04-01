@@ -1,18 +1,14 @@
 from django import forms
-from common.models import Guest
 
-
-class GuestForm(forms.ModelForm):
-    # drink_preferences = forms.MultipleChoiceField(choices=DrinkPreferences.choices, required=False)
-    # name = forms.CharField()
-    # presence = forms.ChoiceField(choices=Presence.choices)
-    # #food_wishes = forms.CharField()
-    #
-    # def get_required_fields
-
-    class Meta:
-        model = Guest
-        fields = "__all__"
-
-    def get_required_fields(self) -> list:
-        return [field for field, data in self.fields.items() if data.required is True]
+class GuestForm(forms.Form):
+    name = forms.CharField(max_length=100, required=True)
+    attending = forms.ChoiceField(choices=[('Да', 'Да'), ('Нет', 'Нет')], required=True)
+    transfer = forms.ChoiceField(choices=[('Да', 'Да'), ('Нет', 'Нет')], required=False)
+    drinks = forms.MultipleChoiceField(choices=[('Водка', 'Водка'), 
+                                                ('Виски', 'Виски'), 
+                                                ('Белое вино', 'Белое вино'), 
+                                                ('Красное вино', 'Красное вино'), 
+                                                ('Шампанское', 'Шампанское'),
+                                                ('Я не пью', 'Я не пью')], 
+                                       required=False)
+    message = forms.CharField(widget=forms.Textarea, required=False)

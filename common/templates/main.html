@@ -94,7 +94,7 @@
                     <div class="row h-100">
 
                         <div class="col-lg-6 col-12 my-auto">
-                            <h2>Привет👋</h2>
+                            <h2 style="color: black;">Привет👋</h2>
 
                             <h1 class="text-white hero-title mb-4">Мы скоро поженимся!</h1>
 
@@ -115,6 +115,77 @@
                     </div>
                 </div>
             </section>
+
+            <section class="countdown-section section-padding" id="countdown">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-12">
+                            <div class="countdown-wrap text-center">
+                                <div class="section-title-wrap mb-5">
+                                    <h2 class="section-title" style="color: black;"> До свадьбы осталось</h2>
+                                    <div class="section-title-bottom">
+                                        <span class="section-title-line"></span>
+                                        <i class="section-title-icon bi-heart-fill"></i>
+                                        <span class="section-title-line"></span>
+                                    </div>
+                                </div>
+            
+                                <div id="countdown-timer" class="row text-center">
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="days">00</span>
+                                            <p>Дней</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="hours">00</span>
+                                            <p>Часов</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="minutes">00</span>
+                                            <p>Минут</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="seconds">00</span>
+                                            <p>Секунд</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                function updateCountdown() {
+                    const weddingDate = new Date("2025-07-20T12:00:00").getTime();
+                    const now = new Date().getTime();
+                    const timeRemaining = weddingDate - now;
+            
+                    if (timeRemaining > 0) {
+                        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+                        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+                    } else {
+                        document.getElementById("countdown-timer").innerHTML = "<h3>Сегодня наш день!</h3>";
+                    }
+                }
+            
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            </script>
 
 
             <section class="about-section section-padding" id="section_2">
@@ -250,15 +321,22 @@
                         </div>
                         
 
-                        <div class="col-lg-4 col-md-6 col-12 d-flex flex-column">
-                            <iframe class="yandex-map" src="https://yandex.by/maps/-/CHRG7BP~" width="100%" height="310" allowfullscreen="" loading="lazy"></iframe>
+                        <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
+                            <div class="image-hover-thumb">
+                                <img src="{% static 'common/assets/gallery/35499.jpg' %}" class="img-fluid" alt="">
+                            </div>
 
                             <div class="section-block">
-                                <h3 class="my-3">Локация</h3>
+                                <h3 class="my-3">Выездная регистрация</h3>
 
                                 <p class="mb-2">
                                     <i class="bi-geo-alt me-1"></i>
-                                    Улица Героев Обороны Брестской Крепости, 60И, Брест
+                                    Усадьба Три Колодца, д. Баранки
+                                </p>
+
+                                <p>
+                                    <i class="bi-clock me-1"></i>
+                                    17:00 
                                 </p>
                             </div>
                         </div>
@@ -273,7 +351,7 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title">Шафер & Подруга Невесты</h2>
+                                <h2 class="section-title" style="color: black;">Шафер & Подруга Невесты</h2>
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
@@ -407,38 +485,73 @@
                                     </div>
                                 </div>
 
-                                <h5 class="mb-4">Will you attend? <span class="text-muted">Please reserve before March 2th, 2022</span></h5>
+                                <h5 class="mb-4"><span class="text-muted">Пожалуйста заполните анкету до 20.06.2025</span></h5>
 
-                                <form class="custom-form rsvp-form" role="form">
+                               <form class="custom-form rsvp-form" method="POST" action="{% url 'invitation' %}" >
+                                    {% csrf_token %}
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <input type="text" name="name" id="name" class="form-control" placeholder="Full Name*" required="">
+                                        <!-- Поле для имени -->
+                                        <div class="col-12 mb-3">
+                                            <label for="name">Ваше имя*</label>
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Введите ваше имя" required>
                                         </div>
-
-                                        <div class="col-lg-4 col-md-6 col-12"> 
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email Address*" required="">
-                                        </div>
-
-                                        <div class="col-lg-4 col-12"> 
-                                            <select name="guests" class="form-select" id="guests" aria-label="Guests">
-                                                <option selected>Number of Guests</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                    
+                                        <!-- Вопрос "Я приду?" -->
+                                        <div class="col-12">
+                                            <label for="attending">Я приду?</label>
+                                            <select name="attending" class="form-select" id="attending">
+                                                <option value="yes" selected>Да</option>
+                                                <option value="no">Нет</option>
                                             </select>
                                         </div>
-
-                                        <div class="col-lg-12 col-12">
-                                            <textarea class="form-control" id="message" name="message" placeholder="Message (Optional)" rows="5"></textarea>
+                                        <!-- Поле "Нужен трансфер" -->
+                                        <div class="col-12 mb-3">
+                                            <label for="transfer">Нужен трансфер?</label>
+                                            <select name="transfer" id="transfer" class="form-select disable-on-no">
+                                                <option value="Да">Да</option>
+                                                <option value="Нет">Нет</option>
+                                            </select>
                                         </div>
-
-                                        <div class="col-lg-3 col-5 mx-auto">
-                                            <button type="submit" class="form-control">Send Invitation</button>
+                                
+                                        <!-- Поле "Предпочтение по напиткам" (чекбоксы) -->
+                                        <div class="col-12 mb-3">
+                                            <label>Предпочтение по напиткам</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Водка" id="drink-vodka">
+                                                <label class="form-check-label" for="drink-vodka">Водка</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Виски" id="drink-whiskey">
+                                                <label class="form-check-label" for="drink-whiskey">Виски</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Белое вино" id="drink-white-wine">
+                                                <label class="form-check-label" for="drink-white-wine">Белое вино</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Красное вино" id="drink-red-wine">
+                                                <label class="form-check-label" for="drink-red-wine">Красное вино</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Шампанское" id="drink-champagne">
+                                                <label class="form-check-label" for="drink-champagne">Шампанское</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input disable-on-no" type="checkbox" name="drinks" value="Я не пью" id="drink-no-alcohol">
+                                                <label class="form-check-label" for="drink-no-alcohol">Я не пью</label>
+                                            </div>
                                         </div>
-
+                                
+                                        <!-- Поле "Сообщение" -->
+                                        <div class="col-12 mb-3">
+                                            <label for="message">Сообщение (необязательно)</label>
+                                            <textarea class="form-control" id="message" name="message" placeholder="Ваши пожелания или комментарии" rows="4"></textarea>
+                                        </div>
+                                
+                                        <!-- Кнопка отправки -->
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-primary">Отправить</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -446,6 +559,46 @@
 
                     </div>
                 </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const attendingField = document.getElementById("attending");
+                        const disableFields = document.querySelectorAll(".disable-on-no");
+                
+                        function updateFields() {
+                            const isAttending = attendingField.value === "yes";
+                            disableFields.forEach(field => {
+                                field.disabled = !isAttending;
+                            });
+                        }
+                
+                        attendingField.addEventListener("change", updateFields);
+                        updateFields(); // Вызываем при загрузке страницы
+                
+                        document.querySelector(".rsvp-form").addEventListener("submit", function (event) {
+                            event.preventDefault(); // Останавливаем стандартную отправку формы
+                
+                            let formData = new FormData(this);
+                            formData.append("csrfmiddlewaretoken", "{{ csrf_token }}"); // Добавляем CSRF-токен
+                
+                            fetch("{% url 'invitation' %}", {
+                                method: "POST",
+                                body: formData,
+                                credentials: "same-origin"  // Учитываем CSRF
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.status === "success") {
+                                    alert("Анкета успешно отправлена!");
+                                    this.reset(); // Очищаем форму
+                                    updateFields(); // Обновляем состояние полей после очистки
+                                } else {
+                                    alert("Ошибка: " + data.message);
+                                }
+                            })
+                            .catch(error => console.error("Ошибка:", error));
+                        });
+                    });
+                </script>
             </section>
 
             <section class="contact-section section-bg section-padding" id="section_7">
@@ -479,13 +632,10 @@
                             <h4 class="mb-4">Socials</h4>
 
                             <ul class="social-icon">
-                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+
 
                                 <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
 
-                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
-
-                                <li class="social-icon-item"><a href="#" target="_blank" class="social-icon-link bi-facebook"></a></li>
                             </ul>
 
                             <p class="copyright-text mt-3 mb-0">Copyright © 2036 Wedding Lite Co., Ltd. 
