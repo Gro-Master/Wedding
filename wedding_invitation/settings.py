@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-
-
+import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback_secret")
 DEBUG = bool(int(os.environ.get("DJANGO_DEBUG", 0)))
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split()
-
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split()
+ALLOWED_HOSTS = ['*']
 # # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split()
 
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", default="").split(" ")
 
+CSRF_TRUSTED_ORIGINS = [f"https://{os.environ.get('RAILWAY_STATIC_URL', 'wedding-production-8fc8.up.railway.app')}"]
+SECURE_SSL_REDIRECT = False  # Отключить редирект на HTTPS (если возникают проблемы)
 
 # Application definition
 
@@ -55,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 ROOT_URLCONF = 'wedding_invitation.urls'
 
@@ -122,8 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # Default primary key field type
