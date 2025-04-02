@@ -46,7 +46,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">
+                <a href="" class="navbar-brand mx-auto mx-lg-0">
                     <span>Владислав</span>
                     <i class="bi-heart brand-icon"></i>
                     <span>Екатерина</span>
@@ -56,6 +56,12 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#section_1">Начало</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_8">
+                            <i class="bi bi-clock" style="font-size: 1rem;"></i>
+                            </a>
                         </li>
 
                         <li class="nav-item">
@@ -86,37 +92,33 @@
 
             </div>
         </nav>
-
+    
         <main>
 
-            <section class="hero-section d-flex" id="section_1">
-                <div class="hero-container container d-flex flex-column justify-content-end" > 
-                    <div class="row h-100">
-
-                        <div class="col-lg-6 col-12 my-auto">
-                            <h2 style="color: black;">Привет👋</h2>
-
+           <section class="hero-section d-flex" id="section_1">
+                <div class="hero-container container d-flex flex-column justify-content-end">
+                    <div class="d-flex flex-column align-items-end h-100">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 mb-4">
+                            <h2 style="color: black;">Привет)</h2>
                             <h1 class="text-white hero-title mb-4">Мы скоро поженимся!</h1>
-
-
                             <a href="#section_2" class="custom-link custom-btn btn mt-4">Узнать больше</a>
                         </div>
-
-                        <div class="col-lg-3 col-12 save-the-date-wrap mt-auto ms-lg-auto">
-                            <div class="save-the-date-thumb">
-                                <h4 class="save-the-date-title">Наш день</h4>
-
-                                <div class="save-the-date-body">
-                                    <span class="date">20 Июля 2025</span>
+            
+                        <div class="col-12 col-lg-3 order-1 order-lg-2 d-flex justify-content-end">
+                            <div class="save-the-date-wrap">
+                                <div class="save-the-date-thumb">
+                                    <h4 class="save-the-date-title">Наш день</h4>
+                                    <div class="save-the-date-body">
+                                        <span class="date">20 Июля 2025</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            <section class="countdown-section section-padding" id="countdown">
+            <section class="countdown-section section-padding " id="section_8">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-12">
@@ -223,7 +225,7 @@
                                 <div class="social-icon-wrap mt-auto">
                                     <ul class="social-icon ms-auto">
 
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                                        <li class="social-icon-item"><a href="https://www.instagram.com/katya_glinnik?igsh=OXZnaDBrdHpmbHk=" class="social-icon-link bi-instagram"></a></li>
 
                                     </ul>
                                 </div>
@@ -252,7 +254,7 @@
                                     <ul class="social-icon ms-auto">
 
 
-                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                                        <li class="social-icon-item"><a href="https://www.instagram.com/domfree_man?igsh=MXJ4MnprODh5c2VuOQ==" class="social-icon-link bi-instagram"></a></li>
 
 
                                     </ul>
@@ -375,9 +377,56 @@
                             </nav>
                         </div>
 
+                        <div class="col-lg-8 col-md-6 col-12">
+                            <div class="tab-content" id="nav-tabContent">
+
+                                <div class="tab-pane fade show active" id="nav-groomsmen" role="tabpanel" aria-labelledby="nav-groomsmen-tab">
+                                    <div class="row">
+                                       <div class="col-lg-6 col-12">
+                                            <div class="people-thumb image-hover-thumb">
+                                                <img src="{% static 'common/images/people/attractive-laughing-guy-having-fun-smiling-happy.jpg' %}" class="people-image img-fluid" alt="">
+                                            </div>
+                                       </div> 
+
+                                       <div class="col-lg-6 col-12">
+                                            <div class="section-block">
+                                                <div class="d-flex align-items-center my-3">
+                                                    <h4 class="mb-0">Дмитрий</h4>
+
+
+                                                </div>
+
+                                                <p> Нужно вставить текст и картинку.</p>
+                                            </div>
+                                       </div> 
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade show" id="nav-bridesmaid" role="tabpanel" aria-labelledby="nav-bridesmaid-tab">
+                                    <div class="row">
+                                       <div class="col-lg-6 col-12">
+                                            <div class="people-thumb image-hover-thumb">
+                                                <img src="{% static 'common/images/people/lifestyle-people-emotions-casual-concept.jpg' %}" class="people-image img-fluid" alt="">
+                                            </div>
+                                       </div> 
+
+                                       <div class="col-lg-6 col-12">
+                                            <div class="section-block">
+                                                <div class="d-flex align-items-center my-3">
+                                                    <h4 class="mb-0">Надежда</h4>
+
+                                                
+                                                </div>
+
+                                                <p> Нужно вставить текст и картинку.</p>
+                                            </div>
+                                       </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         
-
-
                     </div> 
                 </div>
             </section>
@@ -414,8 +463,8 @@
                             </div>
 
                             <div class="gallery-thumb gallery-thumb-small image-hover-thumb">
-                                <a href="{% static 'common/images/gallery/IMG_9262.jpg' %}" class="popup-image">
-                                    <img src="{% static 'common/images/gallery/IMG_9262.jpg' %}" class="gallery-image img-fluid" alt="">
+                                <a href="{% static 'common/images/gallery/1.jpg' %}" class="popup-image">
+                                    <img src="{% static 'common/images/gallery/1.jpg' %}" class="gallery-image img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -430,8 +479,8 @@
 
                         <div class="col-lg-4 col-12 d-flex flex-column">
                             <div class="gallery-thumb gallery-thumb-small image-hover-thumb">
-                                <a href="{% static 'common/images/gallery/IMG_9351.jpg' %}" class="popup-image">
-                                    <img src="{% static 'common/images/gallery/IMG_9351.jpg' %}" class="gallery-image img-fluid" alt="">
+                                <a href="{% static 'common/images/gallery/2.jpg' %}" class="popup-image">
+                                    <img src="{% static 'common/images/gallery/2.jpg' %}" class="gallery-image img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -452,8 +501,8 @@
 
                         <div class="col-lg-4 col-12 d-flex flex-column">
                             <div class="gallery-thumb gallery-thumb-small image-hover-thumb">
-                                <a href="{% static 'common/images/gallery/IMG_9353.jpg' %}" class="popup-image">
-                                    <img src="{% static 'common/images/gallery/IMG_9353.jpg' %}" class="gallery-image img-fluid" alt="">
+                                <a href="{% static 'common/images/gallery/3.jpg' %}" class="popup-image">
+                                    <img src="{% static 'common/images/gallery/3.jpg' %}" class="gallery-image img-fluid" alt="">
                                 </a>
                             </div>
 
@@ -500,8 +549,8 @@
                                         <div class="col-12">
                                             <label for="attending">Я приду?</label>
                                             <select name="attending" class="form-select" id="attending">
-                                                <option value="yes" selected>Да</option>
-                                                <option value="no">Нет</option>
+                                                <option value="Да" selected>Да</option>
+                                                <option value="Нет">Нет</option>
                                             </select>
                                         </div>
                                         <!-- Поле "Нужен трансфер" -->
@@ -559,13 +608,13 @@
 
                     </div>
                 </div>
-                <script>
+               <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         const attendingField = document.getElementById("attending");
                         const disableFields = document.querySelectorAll(".disable-on-no");
                 
                         function updateFields() {
-                            const isAttending = attendingField.value === "yes";
+                            const isAttending = attendingField.value === "Да";
                             disableFields.forEach(field => {
                                 field.disabled = !isAttending;
                             });
@@ -574,6 +623,32 @@
                         attendingField.addEventListener("change", updateFields);
                         updateFields(); // Вызываем при загрузке страницы
                 
+                        // Логика отключения напитков при выборе "Я не пью"
+                        const noAlcoholCheckbox = document.getElementById("drink-no-alcohol");
+                        const drinkCheckboxes = document.querySelectorAll("input[name='drinks']:not(#drink-no-alcohol)");
+                
+                        noAlcoholCheckbox.addEventListener("change", function () {
+                            if (this.checked) {
+                                drinkCheckboxes.forEach(checkbox => {
+                                    checkbox.checked = false;
+                                    checkbox.disabled = true; // Блокируем другие чекбоксы
+                                });
+                            } else {
+                                drinkCheckboxes.forEach(checkbox => {
+                                    checkbox.disabled = false; // Разблокируем чекбоксы
+                                });
+                            }
+                        });
+                
+                        drinkCheckboxes.forEach(checkbox => {
+                            checkbox.addEventListener("change", function () {
+                                if (this.checked) {
+                                    noAlcoholCheckbox.checked = false;
+                                }
+                            });
+                        });
+                
+                        // Обработка отправки формы
                         document.querySelector(".rsvp-form").addEventListener("submit", function (event) {
                             event.preventDefault(); // Останавливаем стандартную отправку формы
                 
@@ -603,12 +678,10 @@
 
             <section class="contact-section section-bg section-padding" id="section_7">
                 <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-12">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-12">
                             <div class="section-title-wrap mb-5">
                                 <h2 class="section-title" style="color: black;">Контакты</h2>
-
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
                                     <i class="section-title-icon bi-heart-fill"></i>
@@ -616,32 +689,21 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <h4 class="mb-4">Visit Us</h4>
-
-
+                    
+                        <div class="col-lg-4 col-md-6 col-12 my-4">
+                            <h4 class="mb-4">Связь с нами</h4>
+                            <p class="mb-2">Жених +375292016797</p>
+                            <p class="mb-2">Невеста +375333184539</p>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
-                            <h4 class="mb-4">Contact Information</h4>
-
-                        </div>
-
+                    
                         <div class="col-lg-4 col-md-6 col-12">
-                            <h4 class="mb-4">Socials</h4>
-
-                            <ul class="social-icon">
-
-
-                                <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
-
+                            <h4 class="mb-4">Телеграм группа</h4>
+                            <ul class="social-icon d-flex justify-content-center">
+                                <li class="social-icon-item">
+                                    <a href="https://t.me/+mcI78GNOaXkxNDNi" class="social-icon-link bi-telegram"></a>
+                                </li>
                             </ul>
-
-                            <p class="copyright-text mt-3 mb-0">Copyright © 2036 Wedding Lite Co., Ltd. 
-
                         </div>
-
                     </div>
                 </div>
             </section>

@@ -413,7 +413,7 @@ strong {
 -----------------------------------------*/
 .hero-container {
   background-color: #d9d8d6;
-  background-image: url('../images/couple-hugging-laughing-near-wall.png');
+  background-image: url('../images/about.png');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--border-radius-small);
@@ -423,6 +423,12 @@ strong {
   height: calc(90vh - 98px);
 }
 
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .hero-container {
+    background-image: url('../images/about_mobale.png');
+  }
+}
 .hero-container h2 {
   color: var(--custom-btn-bg-color);
 }
@@ -552,7 +558,6 @@ strong {
 
 .countdown-section
 {
-    margin-top: 20px;
     background-image: url('../images/timer.jpg');
     background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
     background-position: center; /* Центрирует изображение */
@@ -591,6 +596,17 @@ strong {
 }
 
 /*---------------------------------------
+  LOVE STORY              
+-----------------------------------------*/
+.about-section
+{
+    background-image: url('../images/love_story.jpg');
+    background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Отключает повторение */
+}
+
+/*---------------------------------------
   GALLERY              
 -----------------------------------------*/
 .gallery-thumb,
@@ -608,7 +624,16 @@ strong {
   object-fit: cover;
 }
 
-
+/*---------------------------------------
+  SH AND FR             
+-----------------------------------------*/
+.people-section
+{
+    background-image: url('../images/sh_and_fr.jpg');
+    background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Отключает повторение */
+}
 /*---------------------------------------
   RSVP              
 -----------------------------------------*/

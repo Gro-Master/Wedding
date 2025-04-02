@@ -16,7 +16,7 @@ TELEGRAM_CHAT_ID = "-4782301339"
 def send_to_telegram(name, attending, transfer, drinks, message):
     """Формирует и отправляет сообщение в Telegram."""
     text = f"📝 Новая анкета:\n\n👤 Имя: {name}\n✅ Придёт: {attending}\n"
-    if attending == "yes":
+    if attending == "Да":
         text += f"🚗 Нужен трансфер: {transfer}\n🥂 Напитки: {', '.join(drinks) if drinks else '—'}\n"
     text += f"💬 Сообщение: {message}"
 
@@ -39,8 +39,8 @@ class Invitation(View):
         if form.is_valid():
             name = form.cleaned_data.get("name")
             attending = form.cleaned_data.get("attending")
-            transfer = form.cleaned_data.get("transfer") if attending == "yes" else None
-            drinks = form.cleaned_data.get("drinks") if attending == "yes" else []
+            transfer = form.cleaned_data.get("transfer") if attending == "Да" else None
+            drinks = form.cleaned_data.get("drinks") if attending == "Да" else []
             message = form.cleaned_data.get("message", "—")
 
             logger.debug(f"Отправка анкеты: {name}, присутствие: {attending}, трансфер: {transfer}, напитки: {drinks}, сообщение: {message}")
