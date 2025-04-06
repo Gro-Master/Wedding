@@ -604,14 +604,7 @@ strong {
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Отключает повторение */
 }
-@media (max-width: 768px) {
-  .countdown-section {
-    background-image: url('../images/patterns/love_story_pattern.jpg');
-    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
-    background-position: center center;    /* Центрируем узор */
-    background-repeat: repeat; /* Отключает повторение */
-  }
-}
+
 
 .countdown-wrap {
     background-color: #f8f9fa;
@@ -647,13 +640,7 @@ strong {
 /*---------------------------------------
   LOVE STORY              
 -----------------------------------------*/
-.about-section
-{
-    background-image: url('../images/patterns/love_story_pattern.jpg');
-    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
-    background-position: center center;    /* Центрируем узор */
-    background-repeat: repeat; /* Отключает повторение */
-}
+
 
 .vk-heart-text {
     font-family: 'Amatic SC', cursive;
@@ -666,15 +653,7 @@ strong {
         font-size: 108px; /* Увеличиваем в 3 раза при больших экранах (например, ноутбуки и выше) */
     }
 }
-/*---------------------------------------
-  LOCATION            
------------------------------------------*/
-.the-location-section {
-    background-image: url('../images/patterns/love_story_pattern.jpg');
-    background-repeat: repeat;             /* Повторение по всей секции */
-    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
-    background-position: center center;    /* Центрируем узор */
-}
+
 /*---------------------------------------
   GALLERY              
 -----------------------------------------*/
