@@ -637,6 +637,12 @@ strong {
     color: #333;
 }
 
+@media (max-width: 576px) {
+    #countdown-timer .hide-on-mobile {
+        display: none !important;
+    }
+}
+
 /*---------------------------------------
   LOVE STORY              
 -----------------------------------------*/
