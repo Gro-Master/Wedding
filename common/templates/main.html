@@ -58,26 +58,31 @@
                             <a class="nav-link click-scroll" href="#section_1">Начало</a>
                         </li>
                         
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_8">
-                            <i class="bi bi-clock" style="font-size: 1rem;"></i>
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#section_2">Love Story</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Информация</a>
+                            <a class="nav-link click-scroll" href="#section_3">План дня</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_9">Локация</a>
                         </li>
 
+                        <li class="nav-item d-none d-lg-block">
+                            <a class="nav-link click-scroll " href="#section_5">Галерея</a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#section_4">Шафер&Подруга Невесты</a>
                         </li>
-
+                        
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Галерея</a>
+                            <a class="nav-link click-scroll" href="#section_8">
+                            <i class="bi bi-clock" style="font-size: 1rem;"></i>
+                            </a>
                         </li>
 
                         <li class="nav-item">
@@ -96,175 +101,107 @@
         <main>
 
            <section class="hero-section d-flex" id="section_1">
-                <div class="hero-container container d-flex flex-column justify-content-end">
+                <div class="hero-container container d-flex flex-column justify-content-end ">
                     <div class="d-flex flex-column align-items-end h-100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 mb-4">
-                            <h2 style="color: black;">Привет)</h2>
-                            <h1 class="text-white hero-title mb-4">Мы скоро поженимся!</h1>
-                            <a href="#section_2" class="custom-link custom-btn btn mt-4">Узнать больше</a>
-                        </div>
+                            <h2 class="hero-subtitle" style="color: black;">Wedding Day</h2>
+                            <h1 class="text-white hero-title-big mb-4">20 Июля 2025</h1>
+                             </div>
             
-                        <div class="col-12 col-lg-3 order-1 order-lg-2 d-flex justify-content-end">
-                            <div class="save-the-date-wrap">
-                                <div class="save-the-date-thumb">
-                                    <h4 class="save-the-date-title">Наш день</h4>
-                                    <div class="save-the-date-body">
-                                        <span class="date">20 Июля 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </section>
-
-            <section class="countdown-section section-padding " id="section_8">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-12">
-                            <div class="countdown-wrap text-center">
-                                <div class="section-title-wrap mb-5">
-                                    <h2 class="section-title" style="color: black;"> До свадьбы осталось</h2>
-                                    <div class="section-title-bottom">
-                                        <span class="section-title-line"></span>
-                                        <i class="section-title-icon bi-heart-fill"></i>
-                                        <span class="section-title-line"></span>
-                                    </div>
-                                </div>
-            
-                                <div id="countdown-timer" class="row text-center">
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-box">
-                                            <span id="days">00</span>
-                                            <p>Дней</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-box">
-                                            <span id="hours">00</span>
-                                            <p>Часов</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-box">
-                                            <span id="minutes">00</span>
-                                            <p>Минут</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-3">
-                                        <div class="time-box">
-                                            <span id="seconds">00</span>
-                                            <p>Секунд</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <script>
-                function updateCountdown() {
-                    const weddingDate = new Date("2025-07-20T12:00:00").getTime();
-                    const now = new Date().getTime();
-                    const timeRemaining = weddingDate - now;
-            
-                    if (timeRemaining > 0) {
-                        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            
-                        document.getElementById("days").textContent = days.toString().padStart(2, '0');
-                        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-                        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-                    } else {
-                        document.getElementById("countdown-timer").innerHTML = "<h3>Сегодня наш день!</h3>";
-                    }
-                }
-            
-                setInterval(updateCountdown, 1000);
-                updateCountdown();
-            </script>
-
 
             <section class="about-section section-padding" id="section_2">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-12 col-12">
-                            <div class="section-title-wrap mb-5">
-                                <h2 class="section-title" style="color: black;">Love Story</h2>
-
-                                <div class="section-title-bottom">
-                                    <span class="section-title-line"></span>
-                                    <i class="section-title-icon bi-heart-fill"></i>
-                                    <span class="section-title-line"></span>
-                                </div>
-                            </div>
+                <div class="container d-flex flex-column align-items-center justify-content-center">
+            
+                    
+                    <div class="mb-4 w-100 d-flex justify-content-start">
+                        <div class="text-center image-hover-thumb">
+                            <img src="{% static 'common/images/IMG_9298.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Влад в детстве">
+                            
                         </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="image-hover-thumb">
-                                <img src="{% static 'common/images/IMG_9311.jpg' %}" class="about-image img-fluid" alt="">
-                            </div>
+                    </div>
+            
+                    <!-- Центр: В + К = ❤️ -->
+                    <div class="text-center my-3">
+                        <h2 class="vk-heart-text" style="color: black;">
+                            В + К = <span style="color: red;">❤️</span>
+                        </h2>
+                    </div>
+            
+                  
+                    <div class="mb-5 w-100 d-flex justify-content-end">
+                        <div class="text-center image-hover-thumb">
+                            <img src="{% static 'common/images/IMG_9311.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Катя в детстве">
+                            
                         </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="about-info-wrap d-flex flex-column">
-                                <div class="about-info-title d-flex align-items-center my-3">
-                                    <h4>Екатерина</h4>
-
-                                    <span class="about-tag ms-2">Невеста</span>
-                                </div>
-
-                                <p>Катя невероятная. В первый же день как только я я её увидел, понял что если не предложу встречаться буду самым глупым человеком на свете🤭</p>
-
-                                <div class="social-icon-wrap mt-auto">
-                                    <ul class="social-icon ms-auto">
-
-                                        <li class="social-icon-item"><a href="https://www.instagram.com/katya_glinnik?igsh=OXZnaDBrdHpmbHk=" class="social-icon-link bi-instagram"></a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
+                    </div>
+            
+                    <!-- Проигрыватель музыки -->
+                    <div class="d-flex justify-content-center mb-4">
+                        <div id="musicPlayer" style="
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            background-color: #f0f0f0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+                            cursor: pointer;
+                        " onclick="togglePlayPause()">
+                            <i id="playerIcon" class="bi bi-play-fill" style="font-size: 32px;"></i>
                         </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="image-hover-thumb">
-                                <img src="{% static 'common/images/IMG_9298.jpg' %}" class="about-image img-fluid" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-12">
-                            <div class="about-info-wrap d-flex flex-column">
-                                <div class="about-info-title d-flex align-items-center my-3">
-                                    <h4>Владислав</h4>
-
-                                    <span class="about-tag ms-2">Жених</span>
-                                </div>
-
-                                <p>The best.</p>
-
-
-
-                                <div class="social-icon-wrap mt-auto">
-                                    <ul class="social-icon ms-auto">
-
-
-                                        <li class="social-icon-item"><a href="https://www.instagram.com/domfree_man?igsh=MXJ4MnprODh5c2VuOQ==" class="social-icon-link bi-instagram"></a></li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
+                    </div>
+            
+                    <!-- Тег аудио -->
+                    <audio id="weddingAudio" loop>
+                        <source src="{% static 'common/audio/music.mp3' %}" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио.
+                    </audio>
+            
+                    <!-- Приглашение -->
+                    <div class="col-lg-8 col-md-10 col-12 text-center">
+                        <p class="lead" style="font-family: 'Playfair Display', serif; font-size: 20px;">
+                            Узнали этих ребятишек? Да-да, это мы!<br>
+                            Время пролетело так быстро, представляете?
+                            <br><br>
+                            И вот мы повзрослели и приняли решение, что пора жениться!<br>
+                            Приглашаем вас присоединиться к нашему первому семейному празднику – нашей свадьбе!<br>
+                            Будем рады, если это событие вы разделите вместе с нами.
+                        </p>
+            
+                        <h5 class="mt-4" style="font-family: 'Playfair Display', serif;">
+                            Свадьба состоится
+                            <br>
+                            <span style="font-weight: bold;">20 июля</span>
+                        </h5>
+            
+                        <p class="mt-2" style="font-family: 'Amatic SC', cursive; font-size: 26px;">
+                            С любовью, Влад и Катя 💕
+                        </p>
                     </div>
                 </div>
             </section>
+        
+            <script>
+                const audio = document.getElementById("weddingAudio");
+                const icon = document.getElementById("playerIcon");
+            
+                function togglePlayPause() {
+                    if (audio.paused) {
+                        audio.play();
+                        icon.classList.remove("bi-play-fill");
+                        icon.classList.add("bi-pause-fill");
+                    } else {
+                        audio.pause();
+                        icon.classList.remove("bi-pause-fill");
+                        icon.classList.add("bi-play-fill");
+                    }
+                }
+            </script>
 
             <section class="the-wedding-section section-bg section-padding" id="section_3">
                 <div class="container">
@@ -272,7 +209,7 @@
 
                         <div class="col-lg-12 col-12">
                             <div class="section-title-wrap mb-5">
-                                <h2 class="section-title" style="color: black;">Основная Информация</h2>
+                                <h2 class="section-title" style="color: black;">План дня</h2>
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
@@ -284,40 +221,34 @@
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
                             <div class="image-hover-thumb">
-                                <img src="{% static 'common/assets/front-view-wedding-couple.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'common/images/day_plan/furshet.jpg' %}" class="img-fluid" alt="">
                             </div>
 
                             <div class="section-block">
-                                <h3 class="my-3">Венчание</h3>
+                                <h3 class="my-3">Сбор гостей, фуршет</h3>
 
-                                <p class="mb-2">
-                                    <i class="bi-geo-alt me-1"></i>
-                                    Свято-Николаевский собор, Брестская крепость.
-                                </p>
+        
 
                                 <p>
                                     <i class="bi-clock me-1"></i>
-                                    с 12:40 по 13:10
+                                    15:00
                                 </p>
                             </div>
                         </div>
     
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
                             <div class="image-hover-thumb">
-                                <img src="{% static 'common/assets/decorated-table-setting-wedding-celebration.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'common/images/day_plan/35499.jpg' %}" class="img-fluid" alt="">
                             </div>
 
                             <div class="section-block">
-                                <h3 class="my-3">Банкет</h3>
+                                <h3 class="my-3">Выездная регистрация</h3>
 
-                                <p class="mb-2">
-                                    <i class="bi-geo-alt me-1"></i>
-                                    Усадьба Три Колодца, д. Баранки
-                                </p>
+
 
                                 <p>
                                     <i class="bi-clock me-1"></i>
-                                    15:00 
+                                    16:00 
                                 </p>
                             </div>
                         </div>
@@ -325,24 +256,62 @@
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
                             <div class="image-hover-thumb">
-                                <img src="{% static 'common/assets/gallery/35499.jpg' %}" class="img-fluid" alt="">
+                                <img src="{% static 'common/images/day_plan/decorated-table-setting-wedding-celebration.jpg' %}" class="img-fluid" alt="">
                             </div>
 
                             <div class="section-block">
-                                <h3 class="my-3">Выездная регистрация</h3>
+                                <h3 class="my-3">Основная программа</h3>
 
-                                <p class="mb-2">
-                                    <i class="bi-geo-alt me-1"></i>
-                                    Усадьба Три Колодца, д. Баранки
-                                </p>
+                                
 
                                 <p>
                                     <i class="bi-clock me-1"></i>
-                                    17:00 
+                                    16:30 - 23:00
                                 </p>
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+            <section class="the-location-section section-padding" id="section_9">
+                <div class="container">
+                    <div class="row">
+            
+                        <!-- Заголовок -->
+                        <div class="col-lg-12 col-12">
+                            <div class="section-title-wrap mb-5">
+                                <h2 class="section-title" style="color: black;">Локация</h2>
+            
+                                <div class="section-title-bottom">
+                                    <span class="section-title-line"></span>
+                                    <i class="section-title-icon bi-heart-fill"></i>
+                                    <span class="section-title-line"></span>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Карта -->
+                        <div class="col-lg-10 offset-lg-1 col-12">
+                            <div class="ratio ratio-16x9 shadow rounded mb-4">
+                                <iframe 
+                                    src="https://yandex.by/map-widget/v1/-/CHVRZNND" 
+                                    width="100%" 
+                                    height="100%" 
+                                    frameborder="0"
+                                    allowfullscreen="true"
+                                    style="border:0;">
+                                </iframe>
+                            </div>
+                        </div>
+            
+                        <!-- Адрес и кнопка -->
+                        <div class="col-lg-6 offset-lg-3 col-12 text-center">
+                            <p class="mb-1" style="font-weight: bold; font-size: 18px;">Адрес:</p>
+                            <p>Каменецкий район, д. Баранки, 3 🌿</p>
+
+                        </div>
                     </div>
                 </div>
             </section>
@@ -431,7 +400,7 @@
                 </div>
             </section>
 
-            <section class="gallery-section section-bg section-padding" id="section_5">
+            <section class="gallery-section d-none d-lg-block section-bg section-padding" id="section_5">
                 <div class="container">
                     <div class="row">
 
@@ -516,7 +485,77 @@
                     </div>
                 </div>
             </section>
+    
+            <section class="countdown-section section-padding " id="section_8">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-12">
+                            <div class="countdown-wrap text-center">
+                                <div class="section-title-wrap mb-5">
+                                    <h2 class="section-title" style="color: black;"> Будем очень рады вас видеть через </h2>
+                                    <div class="section-title-bottom">
+                                        <span class="section-title-line"></span>
+                                        <i class="section-title-icon bi-heart-fill"></i>
+                                        <span class="section-title-line"></span>
+                                    </div>
+                                </div>
+            
+                                <div id="countdown-timer" class="row text-center">
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="days">00</span>
+                                            <p>Дней</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="hours">00</span>
+                                            <p>Часов</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="minutes">00</span>
+                                            <p>Минут</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <div class="time-box">
+                                            <span id="seconds">00</span>
+                                            <p>Секунд</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <script>
+                function updateCountdown() {
+                    const weddingDate = new Date("2025-07-20T12:00:00").getTime();
+                    const now = new Date().getTime();
+                    const timeRemaining = weddingDate - now;
+            
+                    if (timeRemaining > 0) {
+                        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+                        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+                    } else {
+                        document.getElementById("countdown-timer").innerHTML = "<h3>Сегодня наш день!</h3>";
+                    }
+                }
+            
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            </script>
 
             <section class="rsvp-section section-padding" id="section_6">
                 <div class="container">
@@ -603,6 +642,31 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div class="row mt-5">
+                                    <div class="col-lg-8 col-md-10 col-12 mx-auto">
+                                        <div class="text-center">
+                                            <h2 class="section-title" style="color: black;">
+                                                Пожелания по подаркам
+                                            </h2>
+                                            
+                                            <p class="mb-3" style="font-family: 'Playfair Display', serif; font-size: 18px;">
+                                                Мы приветствуем творческий подход к поздравлениям.
+                                                <br>
+                                                Просим вас связаться с нашим ведущим и согласовать детали творческого поздравления:
+                                                <br>
+                                                <a href="https://www.instagram.com/viktor_stelmakh?igsh=cHZseWhkd2ZzdHo3" target="_blank" class="text-decoration-none" style="font-family: 'Playfair Display', serif; font-size: 18px;">
+    @viktor_stelmakh
+</a>
+                                            </p>
+                                            <p style="font-family: 'Playfair Display', serif; font-size: 18px;">
+                                                Если хотите подарить нам ценный и нужный подарок, мы будем благодарны
+                                                <br>
+                                                за вклад в бюджет нашей молодой семьи.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                
                             </div>
                         </div>
 
@@ -690,18 +754,27 @@
                             </div>
                         </div>
                     
-                        <div class="col-lg-4 col-md-6 col-12 my-4">
+                        <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
                             <h4 class="mb-4">Связь с нами</h4>
                             <p class="mb-2">Жених +375292016797</p>
                             <p class="mb-2">Невеста +375333184539</p>
                         </div>
                     
-                        <div class="col-lg-4 col-md-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
                             <h4 class="mb-4">Телеграм группа</h4>
                             <ul class="social-icon d-flex justify-content-center">
                                 <li class="social-icon-item">
                                     <a href="https://t.me/+mcI78GNOaXkxNDNi" class="social-icon-link bi-telegram"></a>
                                 </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 col-12 my-4 my-lg-0 my-md-0">
+                            <h4 class="mb-4">Инстаграм</h4>
+                            <ul class="social-icon ms-auto">
+                                <li class="social-icon-item"><a href="https://www.instagram.com/katya_glinnik?igsh=OXZnaDBrdHpmbHk=" class="social-icon-link bi-instagram"></a></li>
+                          
+                                <li class="social-icon-item"><a href="https://www.instagram.com/domfree_man?igsh=MXJ4MnprODh5c2VuOQ==" class="social-icon-link bi-instagram"></a></li>
                             </ul>
                         </div>
                     </div>

@@ -413,7 +413,7 @@ strong {
 -----------------------------------------*/
 .hero-container {
   background-color: #d9d8d6;
-  background-image: url('../images/about.png');
+  background-image: url('../images/about_bw.png');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--border-radius-small);
@@ -426,14 +426,32 @@ strong {
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   .hero-container {
-    background-image: url('../images/about_mobale.png');
+    background-image: url('../images/about_mobale_bw.png');
   }
 }
 .hero-container h2 {
   color: var(--custom-btn-bg-color);
 }
 
+.hero-subtitle {
+    font-size: 72px; /* базовый размер */
+    transition: font-size 0.3s ease;
+}
 
+.hero-title-big {
+    font-size: 72px; /* базовый размер */
+    transition: font-size 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .hero-subtitle {
+        font-size: 72px; /* увеличено в 3 раза */
+    }
+
+    .hero-title-big {
+        font-size: 108px; /* увеличено в 3 раза */
+    }
+}
 /*---------------------------------------
   SAVE THE DATE              
 -----------------------------------------*/
@@ -470,6 +488,29 @@ strong {
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
+
+.child-photo {
+    width: 180px;
+}
+
+@media (min-width: 768px) {
+    .child-photo {
+        width: 220px;
+    }
+}
+
+@media (min-width: 992px) {
+    .child-photo {
+        width: 260px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .child-photo {
+        width: 300px;
+    }
+}
+
 .about-info-wrap {
   height: 100%;
   padding: 20px;
@@ -563,6 +604,14 @@ strong {
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Отключает повторение */
 }
+@media (max-width: 768px) {
+  .countdown-section {
+    background-image: url('../images/patterns/love_story_pattern.jpg');
+    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
+    background-position: center center;    /* Центрируем узор */
+    background-repeat: repeat; /* Отключает повторение */
+  }
+}
 
 .countdown-wrap {
     background-color: #f8f9fa;
@@ -600,12 +649,32 @@ strong {
 -----------------------------------------*/
 .about-section
 {
-    background-image: url('../images/love_story.jpg');
-    background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
-    background-position: center; /* Центрирует изображение */
-    background-repeat: no-repeat; /* Отключает повторение */
+    background-image: url('../images/patterns/love_story_pattern.jpg');
+    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
+    background-position: center center;    /* Центрируем узор */
+    background-repeat: repeat; /* Отключает повторение */
 }
 
+.vk-heart-text {
+    font-family: 'Amatic SC', cursive;
+    font-size: 36px; /* Базовый размер для мобильных */
+    transition: font-size 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .vk-heart-text {
+        font-size: 108px; /* Увеличиваем в 3 раза при больших экранах (например, ноутбуки и выше) */
+    }
+}
+/*---------------------------------------
+  LOCATION            
+-----------------------------------------*/
+.the-location-section {
+    background-image: url('../images/patterns/love_story_pattern.jpg');
+    background-repeat: repeat;             /* Повторение по всей секции */
+    background-size: 500px 500px;          /* Устанавливаем комфортный масштаб */
+    background-position: center center;    /* Центрируем узор */
+}
 /*---------------------------------------
   GALLERY              
 -----------------------------------------*/
@@ -633,6 +702,11 @@ strong {
     background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Отключает повторение */
+}
+@media (max-width: 768px) {
+  .people-section {
+    background-image: url('../images/sh_and_fr_mobile.jpg');
+  }
 }
 /*---------------------------------------
   RSVP              

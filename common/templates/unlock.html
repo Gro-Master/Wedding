@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding Unlock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение шрифтов Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Lora', serif;
+        }
+    
+        .video-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+    
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin: 0 0 40px;
+            letter-spacing: 1.5px;
+        }
+    
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin: 30px 0 60px;
+            line-height: 1.4;
+        }
+    
+        .swipe-wrapper {
+            margin-top: 50px;
+            position: relative;
+            width: 300px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            border: 1px dashed white;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .swipe-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            cursor: grab;
+            z-index: 2;
+        }
+    
+        .swipe-text {
+            position: absolute;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 14px;
+            font-family: 'Lora', serif;
+        }
+    </style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline class="video-bg">
+    <source src="{% static 'common/videos/unlock.mov' %}" type="video/mp4">
+</video>
+
+<div class="center-content">
+    <h1>WEDDING DAY</h1>
+    <h2>ВЛАДИСЛАВ<br>И<br>ЕКАТЕРИНА</h2>
+
+    <div class="swipe-wrapper" id="swipeArea">
+        <div class="swipe-button" id="swipeBtn"></div>
+        <div class="swipe-text">Разблокируйте приглашение</div>
+    </div>
+</div>
+
+<script>
+    const swipeBtn = document.getElementById("swipeBtn");
+    const swipeArea = document.getElementById("swipeArea");
+
+    let startX = 0;
+    let dragging = false;
+
+    function startDrag(x) {
+        dragging = true;
+        startX = x;
+    }
+
+    function duringDrag(x) {
+        if (!dragging) return;
+
+        const delta = x - startX;
+        const maxOffset = swipeArea.clientWidth - swipeBtn.clientWidth;
+        const newLeft = Math.min(Math.max(0, delta), maxOffset);
+
+        swipeBtn.style.left = newLeft + "px";
+
+        if (newLeft >= maxOffset - 10) {
+            window.location.href = "/main/";
+        }
+    }
+
+    function endDrag() {
+        dragging = false;
+        swipeBtn.style.left = "0px";
+    }
+
+    // Touch events
+    swipeBtn.addEventListener("touchstart", e => startDrag(e.touches[0].clientX));
+    swipeBtn.addEventListener("touchmove", e => duringDrag(e.touches[0].clientX));
+    swipeBtn.addEventListener("touchend", endDrag);
+
+    // Mouse events
+    swipeBtn.addEventListener("mousedown", e => {
+        e.preventDefault();
+        startDrag(e.clientX);
+    });
+
+    document.addEventListener("mousemove", e => {
+        if (dragging) duringDrag(e.clientX);
+    });
+
+    document.addEventListener("mouseup", endDrag);
+</script>
+
+</body>
+</html>

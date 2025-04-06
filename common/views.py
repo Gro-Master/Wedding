@@ -7,6 +7,24 @@ import requests
 import logging
 from common.forms import GuestForm  # Убедись, что форма импортирована
 
+
+from django.views.generic import TemplateView, RedirectView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+
+class UnlockView(TemplateView):
+    template_name = "unlock.html"
+
+@method_decorator(never_cache, name='dispatch')
+class MobileRedirectView(RedirectView):
+    permanent = False
+
+    def get_redirect_url(self, *args, **kwargs):
+        user_agent = self.request.META.get('HTTP_USER_AGENT', '').lower()
+        if "mobile" in user_agent or "android" in user_agent or "iphone" in user_agent:
+            return "/unlock/"
+        return "/main/"
+
 logger = logging.getLogger(__name__)
 
 # Замените на свои данные
