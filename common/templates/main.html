@@ -14,8 +14,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap&subset=cyrillic" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
         <link href="{% static 'common/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -24,6 +29,7 @@
         <link href="{% static 'common/css/magnific-popup.css' %}" rel="stylesheet">
 
         <link href="{% static 'common/css/tooplate-wedding-lite.css' %}" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     </head>
     
@@ -32,14 +38,14 @@
         <section class="preloader">
             <div class="spinner">
                 <span class="spinner-rotate">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" style="color: red;" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
                 </span>    
             </div>
         </section>
 
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg section-bg">
             <div class="container">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,6 +86,10 @@
                             <i class="bi bi-clock" style="font-size: 1rem;"></i>
                             </a>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_10">О подарках</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link click-scroll" href="#section_6">Анкета</a>
@@ -96,7 +106,7 @@
     
         <main>
 
-           <section class="hero-section d-flex" id="section_1">
+           <section class="hero-section d-flex section-bg" id="section_1">
                 <div class="hero-container container d-flex flex-column justify-content-end ">
                     <div class="d-flex flex-column align-items-end h-100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 mb-4">
@@ -109,7 +119,7 @@
                 </div>
             </section>
 
-            <section class="about-section section-padding" id="section_2">
+            <section class="about-section section-padding " id="section_2">
                 <div class="container d-flex flex-column align-items-center justify-content-center">
             
                     
@@ -130,7 +140,7 @@
                   
                     <div class="mb-5 w-100 d-flex justify-content-end">
                         <div class="text-center image-hover-thumb">
-                            <img src="{% static 'common/images/IMG_9311.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Катя в детстве">
+                            <img src="{% static 'common/images/baby_kate.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Катя в детстве">
                             
                         </div>
                     </div>
@@ -158,7 +168,7 @@
                         Ваш браузер не поддерживает аудио.
                     </audio>
             
-                    <!-- Приглашение -->
+                    <!-- Приглашение 💕-->
                     <div class="col-lg-8 col-md-10 col-12 text-center">
                         <p class="lead" style="font-family: 'Playfair Display', serif; font-size: 20px;">
                             Узнали этих ребятишек? Да-да, это мы!<br>
@@ -176,7 +186,7 @@
                         </h5>
             
                         <p class="mt-2" style="font-family: 'Amatic SC', cursive; font-size: 26px;">
-                            С любовью, Влад и Катя 💕
+                            С любовью, Влад и Катя <span style="color: red;">✨</span>
                         </p>
                     </div>
                 </div>
@@ -209,7 +219,7 @@
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
-                                    <i class="section-title-icon bi-heart-fill"></i>
+                                    <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                     <span class="section-title-line"></span>
                                 </div>
                             </div>
@@ -282,7 +292,7 @@
             
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
-                                    <i class="section-title-icon bi-heart-fill"></i>
+                                    <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                     <span class="section-title-line"></span>
                                 </div>
                             </div>
@@ -322,7 +332,7 @@
 
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
-                                    <i class="section-title-icon bi-heart-fill"></i>
+                                    <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                     <span class="section-title-line"></span>
                                 </div>
                             </div>
@@ -398,7 +408,7 @@
                 </div>
             </section>
     
-            <section class="countdown-section section-padding " id="section_8">
+            <section class="countdown-section section-padding section-bg" id="section_8">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-12">
@@ -407,7 +417,7 @@
                                     <h2 class="section-title" style="color: black;"> Будем очень рады вас видеть через </h2>
                                     <div class="section-title-bottom">
                                         <span class="section-title-line"></span>
-                                        <i class="section-title-icon bi-heart-fill"></i>
+                                        <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                         <span class="section-title-line"></span>
                                     </div>
                                 </div>
@@ -469,7 +479,44 @@
                 updateCountdown();
             </script>
 
-            <section class="rsvp-section section-padding" id="section_6">
+            <section class="gift-section section-padding" id="section_10">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10 col-12">
+                            <div class="text-center">
+                                <div class="section-title-wrap mb-5">
+                                    <h2 class="section-title" style="color: black;">
+                                        Пожелания по подаркам
+                                    </h2>
+                                    <div class="section-title-bottom">
+                                        <span class="section-title-line"></span>
+                                        <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
+                                        <span class="section-title-line"></span>
+                                    </div>
+                                </div>
+            
+                                <p class="mb-3" style="font-family: 'Playfair Display', serif; font-size: 18px;">
+                                    Мы приветствуем творческий подход к поздравлениям.
+                                    <br>
+                                    Просим вас связаться с нашим ведущим и согласовать детали творческого поздравления:
+                                    <br>
+                                    <a href="https://www.instagram.com/viktor_stelmakh?igsh=cHZseWhkd2ZzdHo3" target="_blank" class="text-decoration-none" style="font-family: 'Playfair Display', serif; font-size: 18px;">
+                                        @viktor_stelmakh
+                                    </a>
+                                </p>
+            
+                                <p style="font-family: 'Playfair Display', serif; font-size: 18px;">
+                                    Если хотите подарить нам ценный и нужный подарок, мы будем благодарны
+                                    <br>
+                                    за вклад в бюджет нашей молодой семьи.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rsvp-section section-padding section-bg" id="section_6">
                 <div class="container">
                     <div class="row">
 
@@ -480,14 +527,14 @@
 
                                     <div class="section-title-bottom">
                                         <span class="section-title-line"></span>
-                                        <i class="section-title-icon bi-heart-fill"></i>
+                                        <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                         <span class="section-title-line"></span>
                                     </div>
                                 </div>
 
                                 <h5 class="mb-4"><span class="text-muted">Пожалуйста заполните анкету до 20.06.2025</span></h5>
 
-                               <form class="custom-form rsvp-form" method="POST" action="{% url 'invitation' %}" >
+                               <form class="custom-form rsvp-form" id="rsvpForm" method="POST" action="{% url 'invitation' %}" >
                                     {% csrf_token %}
                                     <div class="row">
                                         <!-- Поле для имени -->
@@ -554,30 +601,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="row mt-5">
-                                    <div class="col-lg-8 col-md-10 col-12 mx-auto">
-                                        <div class="text-center">
-                                            <h2 class="section-title" style="color: black;">
-                                                Пожелания по подаркам
-                                            </h2>
-                                            
-                                            <p class="mb-3" style="font-family: 'Playfair Display', serif; font-size: 18px;">
-                                                Мы приветствуем творческий подход к поздравлениям.
-                                                <br>
-                                                Просим вас связаться с нашим ведущим и согласовать детали творческого поздравления:
-                                                <br>
-                                                <a href="https://www.instagram.com/viktor_stelmakh?igsh=cHZseWhkd2ZzdHo3" target="_blank" class="text-decoration-none" style="font-family: 'Playfair Display', serif; font-size: 18px;">
-    @viktor_stelmakh
-</a>
-                                            </p>
-                                            <p style="font-family: 'Playfair Display', serif; font-size: 18px;">
-                                                Если хотите подарить нам ценный и нужный подарок, мы будем благодарны
-                                                <br>
-                                                за вклад в бюджет нашей молодой семьи.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                                                 
                             </div>
                         </div>
@@ -624,35 +648,39 @@
                             });
                         });
                 
-                        // Обработка отправки формы
-                        document.querySelector(".rsvp-form").addEventListener("submit", function (event) {
-                            event.preventDefault(); // Останавливаем стандартную отправку формы
-                
-                            let formData = new FormData(this);
-                            formData.append("csrfmiddlewaretoken", "{{ csrf_token }}"); // Добавляем CSRF-токен
-                
-                            fetch("{% url 'invitation' %}", {
-                                method: "POST",
-                                body: formData,
-                                credentials: "same-origin"  // Учитываем CSRF
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.status === "success") {
-                                    alert("Анкета успешно отправлена!");
-                                    this.reset(); // Очищаем форму
-                                    updateFields(); // Обновляем состояние полей после очистки
-                                } else {
-                                    alert("Ошибка: " + data.message);
-                                }
-                            })
-                            .catch(error => console.error("Ошибка:", error));
+                        $(document).ready(function () {
+                            $("#rsvpForm").on("submit", function (e) {
+                                e.preventDefault(); // <- стопим обычную отправку формы
+                        
+                                var formData = $(this).serialize(); // собрали данные
+                        
+                                $.ajax({
+                                    type: "POST",
+                                    url: $(this).attr("action"), // берем url из action формы
+                                    data: formData,
+                                    success: function (response) {
+                                        if (response.status === "success") {
+                                            $("#responseMessage").text(response.message);
+                                            $("#responseModal").modal("show");
+                                        } else {
+                                            $("#responseMessage").text(response.message);
+                                            $("#responseModal").modal("show");
+                                        }
+                                    },
+                                    error: function () {
+                                        $("#responseMessage").text("Произошла ошибка. Пожалуйста, попробуйте позже.");
+                                        $("#responseModal").modal("show");
+                                    }
+                                });
+                        
+                                return false; // <- ещё раз останавливаем на всякий случай
+                            });
                         });
                     });
                 </script>
             </section>
 
-            <section class="contact-section section-bg section-padding" id="section_7">
+            <section class="contact-section section-padding" id="section_7">
                 <div class="container">
                     <div class="row justify-content-center text-center">
                         <div class="col-lg-12">
@@ -660,7 +688,7 @@
                                 <h2 class="section-title" style="color: black;">Контакты</h2>
                                 <div class="section-title-bottom">
                                     <span class="section-title-line"></span>
-                                    <i class="section-title-icon bi-heart-fill"></i>
+                                    <i class="section-title-icon bi-heart-fill" style="color: red;"></i>
                                     <span class="section-title-line"></span>
                                 </div>
                             </div>
@@ -694,7 +722,54 @@
             </section>
 
         </main>
+        
+        <!-- Модальное окно 
+        
+        // Обработка отправки формы
+        document.querySelector(".rsvp-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Останавливаем стандартную отправку формы
 
+            let formData = new FormData(this);
+            formData.append("csrfmiddlewaretoken", "{{ csrf_token }}"); // Добавляем CSRF-токен
+
+            fetch("{% url 'invitation' %}", {
+                method: "POST",
+                body: formData,
+                credentials: "same-origin"  // Учитываем CSRF
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Анкета успешно отправлена!");
+                    this.reset(); // Очищаем форму
+                    updateFields(); // Обновляем состояние полей после очистки
+                } else {
+                    alert("Ошибка: " + data.message);
+                }
+            })
+            .catch(error => console.error("Ошибка:", error));
+        });
+        -->
+        <div class="modal" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="responseModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="responseModalLabel">Результат отправки анкеты</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="responseMessage">Анкета успешно отправлена!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/" class="btn btn-primary">Вернуться на главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
         <footer class="site-footer">
             <div class="container">
                 <div class="row">

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Подключение шрифтов Google -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <style>
         html, body {
@@ -41,63 +42,93 @@
         }
     
         h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 34px;
-            margin: 30px 0 60px;
-            line-height: 1.4;
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            text-align: center;
+            color: #fff; /* белый цвет текста */
+            margin: 0;
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
     
         .swipe-wrapper {
             margin-top: 50px;
             position: relative;
-            width: 300px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            border: 1px dashed white;
+            width: 320px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             margin-left: auto;
             margin-right: auto;
+            overflow: hidden;
         }
-    
+        
         .swipe-button {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 5px;
+            left: 5px;
             width: 50px;
             height: 50px;
-            background: white;
+            background: linear-gradient(135deg, #ffffff, #dddddd);
             border-radius: 50%;
             cursor: grab;
             z-index: 2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
         }
-    
+        
+        .swipe-button .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #555;
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .swipe-button:active {
+            cursor: grabbing;
+            background: linear-gradient(135deg, #f1f1f1, #cccccc);
+        }
+        
         .swipe-text {
             position: absolute;
             top: 50%;
-            left: 60px;
+            left: 80px;
             transform: translateY(-50%);
             color: white;
             font-size: 14px;
-            font-family: 'Lora', serif;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+            pointer-events: none;
         }
         .grayscale-video {
-            filter: grayscale(100%);
+            
 
         }
+        
     </style>
 </head>
 <body>
 
 <video autoplay muted loop playsinline class="video-bg grayscale-video">
-    <source src="{% static 'common/videos/unlock.MOV' %}" type="video/mp4">
+    <source src="{% static 'common/videos/unlock_bw.MOV' %}" type="video/mp4">
 </video>
 
 <div class="center-content">
     <h1>WEDDING DAY</h1>
-    <h2>ВЛАДИСЛАВ<br>И<br>ЕКАТЕРИНА</h2>
+    <h2>Vladislav<br>&<br>Ekaterina</h2>
 
     <div class="swipe-wrapper" id="swipeArea">
-        <div class="swipe-button" id="swipeBtn"></div>
+        <div class="swipe-button" id="swipeBtn">
+            <span class="arrow">➔</span>
+        </div>
         <div class="swipe-text">Разблокируйте приглашение</div>
     </div>
 </div>

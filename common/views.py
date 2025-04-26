@@ -67,7 +67,7 @@ class Invitation(View):
             if send_to_telegram(name, attending, transfer, drinks, message):
                 return JsonResponse({"status": "success", "message": "Анкета успешно отправлена!"})
             else:
-                return JsonResponse({"status": "error", "message": "Ошибка при отправке в Telegram."})
+                return JsonResponse({"status": "error", "message": "Ошибка заполнения анкеты."})
 
         logger.error(f"Ошибка валидации формы: {form.errors}")
         return JsonResponse({"status": "error", "message": "Некорректные данные."})
