@@ -21,8 +21,11 @@ https://www.tooplate.com/view/2131-wedding-lite
   --icon-color:                   #28856b;
 
   --body-font-family:             'Source Sans Pro', sans-serif;
-  --title-font-family:            'Amatic SC', cursive;
-
+ /*
+  --title-font-family:            'Amatic SC', cursive; 'Lora', cursive; 'Marck Script', cursive;
+*/
+  --title-font-family:            'Bad Script', cursive;
+  
   --h1-font-size:                 72px;
   --h2-font-size:                 48px;
   --h3-font-size:                 36px;
@@ -441,6 +444,7 @@ strong {
 .hero-title-big {
     font-size: 72px; /* базовый размер */
     transition: font-size 0.3s ease;
+    font-family: 'Amatic SC', cursive;
 }
 
 @media (min-width: 992px) {
@@ -595,17 +599,21 @@ strong {
 
 /*---------------------------------------
   TIMER         
+
+
+.countdown-section {
+    background: var(--section-bg-color);
+}
 -----------------------------------------*/
 
-.countdown-section
-{
+@media (min-width: 768px) {
+  .countdown-section {
     background-image: url('../images/timer.jpg');
     background-size: cover;    /* Масштабирует изображение, чтобы оно покрывало весь блок */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Отключает повторение */
+  }
 }
-
-
 .countdown-wrap {
     background-color: #f8f9fa;
     padding: 40px;
@@ -729,12 +737,14 @@ strong {
 /*---------------------------------------
   RSVP              
 -----------------------------------------*/
-.rsvp-section {
-  background-image: url('../images/grizly-club-p-svadebnii-fon-priroda-8.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  
-  background-size: cover;
+@media (min-width: 768px) {
+    .rsvp-section {
+      background-image: url('../images/grizly-club-p-svadebnii-fon-priroda-8.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      
+      background-size: cover;
+    }
 }
 
 .rsvp-form-wrap {
@@ -742,7 +752,9 @@ strong {
   border-radius: var(--border-radius-medium);
   padding: 50px;
 }
-
+.text-muted{
+  font-family: 'Amatic SC', cursive;
+}
 
 /*---------------------------------------
   CUSTOM FORM               
@@ -833,6 +845,29 @@ strong {
 
 .drink-options input {
     margin-right: 8px;
+}
+
+/*---------------------------------------
+  MODAL WINDOW              
+-----------------------------------------*/
+.modal-content {
+    background-color: #fefefe;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+#responseMessage {
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
 }
 
 /*---------------------------------------
