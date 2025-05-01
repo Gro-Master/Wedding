@@ -38,7 +38,7 @@
         <section class="preloader">
             <div class="spinner">
                 <span class="spinner-rotate">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" style="color: red;" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-heart-fill" style="color: red;" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
                 </span>    
@@ -125,7 +125,7 @@
                     
                     <div class="mb-4 w-100 d-flex justify-content-start">
                         <div class="text-center image-hover-thumb">
-                            <img src="{% static 'common/images/IMG_9298.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Влад в детстве">
+                            <img src="{% static 'common/images/baby_vlad.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Влад в детстве">
                             
                         </div>
                     </div>
@@ -146,6 +146,11 @@
                     </div>
             
                     <!-- Проигрыватель музыки -->
+                    <div class="col-lg-8 col-md-10 col-12 text-center">
+                    <p class="lead" style="font-family: 'Playfair Display', serif; font-size: 20px;">
+                        Включите музыку для атмосферы
+                    </p>
+                    </div>
                     <div class="d-flex justify-content-center mb-4">
                         <div id="musicPlayer" style="
                             width: 60px;
@@ -226,7 +231,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb">
+                            <div class="image-hover-thumb image-tone">
                                 <img src="{% static 'common/images/day_plan/furshet.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -243,7 +248,7 @@
                         </div>
     
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb">
+                            <div class="image-hover-thumb image-tone">
                                 <img src="{% static 'common/images/day_plan/35499.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -261,7 +266,7 @@
                         
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb">
+                            <div class="image-hover-thumb image-tone">
                                 <img src="{% static 'common/images/day_plan/decorated-table-setting-wedding-celebration.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -755,20 +760,23 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="responseModalLabel">Результат отправки анкеты</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" id="closeModalBtn" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <p id="responseMessage">Анкета успешно отправлена!</p>
                     </div>
-                    <div class="modal-footer">
-                        <a href="/" class="btn btn-primary">Вернуться на главную</a>
-                    </div>
                 </div>
             </div>
         </div>
-        
+                
+                
+        <script>
+            document.getElementById("closeModalBtn").addEventListener("click", function () {
+                window.location.href = "/";
+            });
+        </script>
         
         <footer class="site-footer">
             <div class="container">

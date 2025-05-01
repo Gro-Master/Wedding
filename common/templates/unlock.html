@@ -50,6 +50,13 @@
             letter-spacing: 1px;
             line-height: 1.2;
         }
+        
+        .ampersand {
+          font-family: 'Lora', serif;  /* или другой шрифт */
+          font-size: 36px; /* например, крупнее */
+          display: inline-block;
+          margin: 0 5px;
+        }
     
         .swipe-wrapper {
             margin-top: 50px;
@@ -123,7 +130,11 @@
 
 <div class="center-content">
     <h1>WEDDING DAY</h1>
-    <h2>Vladislav<br>&<br>Ekaterina</h2>
+    <h2>
+      Vladislav<br>
+      <span class="ampersand">&</span><br>
+      Ekaterina
+    </h2>
 
     <div class="swipe-wrapper" id="swipeArea">
         <div class="swipe-button" id="swipeBtn">
