@@ -4,6 +4,7 @@ class GuestForm(forms.Form):
     name = forms.CharField(max_length=100, required=True)
     attending = forms.ChoiceField(choices=[('Да', 'Да'), ('Нет', 'Нет')], required=True)
     transfer = forms.ChoiceField(choices=[('Да', 'Да'), ('Нет', 'Нет')], required=False)
+    home = forms.ChoiceField(choices=[('Да', 'Да'), ('Нет', 'Нет')], required=False)
     drinks = forms.MultipleChoiceField(choices=[('Водка', 'Водка'), 
                                                 ('Виски', 'Виски'), 
                                                 ('Белое вино', 'Белое вино'), 
