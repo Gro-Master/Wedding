@@ -410,6 +410,12 @@ strong {
   top: 8px;
 }
 
+/*---------------------------------------
+  preloader              
+-----------------------------------------*/
+.preloader .spinner-rotate {
+    color: red; /* задаёт цвет иконке через currentColor */
+}
 
 /*---------------------------------------
   HERO              
@@ -442,7 +448,7 @@ strong {
 }
 
 .hero-title-big {
-    font-size: 72px; /* базовый размер */
+    font-size: 68px; /* базовый размер */
     transition: font-size 0.3s ease;
     font-family: 'Amatic SC', cursive;
 }
@@ -854,7 +860,7 @@ strong {
 }
 
 /*---------------------------------------
-  MODAL WINDOW              
+  MODAL WINDOW               
 -----------------------------------------*/
 .modal-content {
     background-color: #fefefe;
@@ -864,6 +870,9 @@ strong {
 
 .modal-header {
     border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .modal-footer {
@@ -873,7 +882,23 @@ strong {
 #responseMessage {
     font-size: 18px;
     font-family: 'Playfair Display', serif;
-    text-align: center;
+    text-align: left; /* Выравнивание текста по левому краю */
+    margin: 0; /* Убираем отступы */
+}
+
+/* Стиль для кнопки закрытия */
+.close {
+    border: none; /* Убираем границу */
+    background: none; /* Убираем фон */
+    font-size: 1.5rem; /* Размер крестика */
+    color: #000; /* Цвет крестика */
+    padding: 0;
+    line-height: 1;
+    cursor: pointer; /* Указатель, чтобы было видно, что это кнопка */
+}
+
+.close:hover {
+    color: #f00; /* Цвет крестика при наведении */
 }
 
 /*---------------------------------------
@@ -928,23 +953,22 @@ strong {
 }
 
 .social-icon-link {
-  background: var(--secondary-color);
+  background: transparent;
   border-radius: var(--border-radius-large);
-  font-size: var(--menu-font-size);
-  color: var(--dark-color);
+  font-size: 26px;        /* Увеличиваем размер иконки */
+  color: black;
   display: inline-block;
   vertical-align: top;
-  margin: 4px;
-  width: 30px;
-  line-height: 30px;
-  line-height: 30px;
+  margin: 6px;
+  width: 40px;            /* Увеличиваем ширину области */
+  height: 40px;           /* Добавляем высоту */
+  line-height: 40px;      /* Центрируем по вертикали */
   text-align: center;
 }
-
 .social-icon-link:hover {
-  color: var(--white-color);
+  background: transparent; /* Убираем фон при наведении */
+  color: inherit; /* Без изменения цвета */
 }
-
 
 /*---------------------------------------
   RESPONSIVE STYLES               
