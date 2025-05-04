@@ -19,6 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap&subset=cyrillic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
@@ -60,7 +61,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                        <li class="nav-item d-none d-lg-block">
                             <a class="nav-link click-scroll" href="#section_1">Начало</a>
                         </li>
                         
@@ -106,12 +107,12 @@
     
         <main>
 
-           <section class="hero-section d-flex section-bg" id="section_1">
+           <section class="hero-section d-none d-lg-block d-flex section-bg" id="section_1">
                 <div class="hero-container container d-flex flex-column justify-content-end ">
                     <div class="d-flex flex-column align-items-end h-100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 mb-4">
                             <h2 class="hero-subtitle" style="color: black;">Wedding Day</h2>
-                            <h1 class="text-white hero-title-big mb-4">20 Июля 2025</h1>
+                            <h1 class="hero-title-big mb-4"  style="color: gray;">20 Июля 2025</h1>
                              </div>
             
                         
@@ -123,31 +124,31 @@
                 <div class="container d-flex flex-column align-items-center justify-content-center">
             
                     
+                    <!-- Левая фотография (наклон влево) -->
                     <div class="mb-4 w-100 d-flex justify-content-start">
-                        <div class="text-center image-hover-thumb">
-                            <img src="{% static 'common/images/baby_vlad.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Влад в детстве">
-                            
+                        <div class="polaroid rotate-left text-center image-hover-thumb">
+                            <img src="{% static 'common/images/baby_vlad.jpg' %}" class="img-fluid child-photo" alt="Влад в детстве">
                         </div>
                     </div>
-            
-                    <!-- Центр: В + К = ❤️ -->
+                    
+                    <!-- Центр -->
                     <div class="text-center my-3">
                         <h2 class="vk-heart-text" style="color: black;">
-                            В + К = <span style="color: red;">❤️</span>
+                            В + К = <i class="bi bi-heart-fill text-danger"></i>
                         </h2>
                     </div>
-            
-                  
+
+                    
+                    <!-- Правая фотография (наклон вправо) -->
                     <div class="mb-5 w-100 d-flex justify-content-end">
-                        <div class="text-center image-hover-thumb">
-                            <img src="{% static 'common/images/baby_kate.jpg' %}" class="img-fluid rounded shadow child-photo" alt="Катя в детстве">
-                            
+                        <div class="polaroid rotate-right text-center image-hover-thumb">
+                            <img src="{% static 'common/images/baby_kate.jpg' %}" class="img-fluid child-photo" alt="Катя в детстве">
                         </div>
                     </div>
-            
+                    
                     <!-- Проигрыватель музыки -->
                     <div class="col-lg-8 col-md-10 col-12 text-center">
-                    <p class="lead" style="font-family: 'Bad Script', cursive; font-size: 20px; font-style: italic;">
+                    <p class="lead" style="font-family: 'Amatic SC', cursive; font-size: 20px;">
                         Включите музыку для атмосферы
                     </p>
                     </div>
@@ -184,7 +185,7 @@
                             Будем рады, если это событие вы разделите вместе с нами.
                         </p>
             
-                        <h5 class="mt-4" style="font-family: 'Bad Script', serif; font-weight: bold; font-size: 36px;">
+                        <h5 class="mt-4" style="font-family: 'Amatic SC', cursive; font-size: 36px;">
                             Свадьба состоится
                             <br>
                             <span style="font-weight: bold;">20 июля</span>
@@ -231,7 +232,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb image-tone">
+                            <div class="image-hover-thumb">
                                 <img src="{% static 'common/images/day_plan/furshet.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -248,7 +249,7 @@
                         </div>
     
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb image-tone">
+                            <div class="image-hover-thumb">
                                 <img src="{% static 'common/images/day_plan/35499.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -266,7 +267,7 @@
                         
 
                         <div class="col-lg-4 col-md-6 col-12 d-flex flex-column mb-4 mb-lg-0 mb-md-0">
-                            <div class="image-hover-thumb image-tone">
+                            <div class="image-hover-thumb">
                                 <img src="{% static 'common/images/day_plan/decorated-table-setting-wedding-celebration.jpg' %}" class="img-fluid" alt="">
                             </div>
 
@@ -506,15 +507,19 @@
                                     Если вы хотите порадовать нас чем-то особенным,
                                     мы будем искренне благодарны за вклад в бюджет нашей молодой семьи —
                                     это самый ценный и нужный подарок для нас.
+                                </p>
+                                <p style="font-family: 'Playfair Display', serif; font-size: 18px;">
                                     Пожалуйста, не дарите цветы — они, увы, быстро увядают.
-                                    Вместо них мы будем рады бутылке крепкого напитка
-                                    на ваш вкус, чтобы в будущем с теплом вспомнить наш общий праздник.
+                                    Вместо них мы будем рады бутылочке вашего любимого алкогольного напитка
+                                    с запиской: "Открыть по поводу...".
+                                    Так вы останетесь с нами не только в день свадьбы,
+                                    но и в тёплые моменты после неё.
                                 </p>
                                 
                                 <p class="mb-3" style="font-family: 'Playfair Display', serif; font-size: 18px;">
                                     Мы приветствуем творческий подход к поздравлениям.
                                     <br>
-                                    Просим вас связаться с нашим ведущим и согласовать детали творческого поздравления:
+                                    Для реализации просим вас связаться с нашим ведущим и согласовать детали творческого поздравления:
                                     <br>
                                     <a href="https://www.instagram.com/viktor_stelmakh?igsh=cHZseWhkd2ZzdHo3" target="_blank" class="text-decoration-none" style="font-family: 'Playfair Display', serif; font-size: 18px;">
                                         @viktor_stelmakh
@@ -798,7 +803,7 @@
 
                     <div class="col-lg-3 col-12 mx-auto">
                         <a href="" class="navbar-brand mx-auto mx-lg-0">
-                            <span>Владислав</span>
+                            <span>Владислав&nbsp;</span>
                             <i class="bi-heart brand-icon"></i>
                             <span>Екатерина</span>
                         </a>

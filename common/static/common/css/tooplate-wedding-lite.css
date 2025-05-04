@@ -22,9 +22,9 @@ https://www.tooplate.com/view/2131-wedding-lite
 
   --body-font-family:             'Source Sans Pro', sans-serif;
  /*
-  --title-font-family:            'Amatic SC', cursive; 'Lora', cursive; 'Marck Script', cursive;
+  --title-font-family:            'Amatic SC', cursive; 'Lora', cursive; 'Marck Script', cursive; 'Great Vibes', cursive
 */
-  --title-font-family:            'Bad Script', cursive;
+  --title-font-family:            'Amatic SC', cursive;
   
   --h1-font-size:                 72px;
   --h2-font-size:                 48px;
@@ -420,9 +420,10 @@ strong {
 /*---------------------------------------
   HERO              
 -----------------------------------------*/
+
 .hero-container {
   background-color: #d9d8d6;
-  background-image: url('../images/about_bw.png');
+  background-image: url('../images/about.png');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--border-radius-small);
@@ -435,7 +436,7 @@ strong {
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   .hero-container {
-    background-image: url('../images/about_mobale_bw.png');
+    background-image: url('../images/about_mobale.png');
   }
 }
 .hero-container h2 {
@@ -462,6 +463,29 @@ strong {
         font-size: 108px; /* увеличено в 3 раза */
     }
 }
+
+.polaroid {
+    background: white;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border-radius: 4px;
+    max-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.rotate-left {
+    transform: rotate(-3deg);
+}
+
+.rotate-right {
+    transform: rotate(3deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
 /*---------------------------------------
   SAVE THE DATE              
 -----------------------------------------*/
@@ -917,7 +941,7 @@ strong {
 
 .site-footer::after {
   content: "";
-  background: var(--primary-color);
+  
   position: absolute;
   top: 0;
   left: 0;
