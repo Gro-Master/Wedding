@@ -150,13 +150,13 @@ strong {
   background: var(--section-bg-color);
 }
 
+.section-block {
+  padding: 20px;
+}
+
 .section-padding {
   padding-top: 100px;
   padding-bottom: 100px;
-}
-
-.section-block {
-  padding: 20px;
 }
 
 .section-divider {
@@ -522,6 +522,11 @@ strong {
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
+
+.about-section
+{
+    
+}
 
 .child-photo {
     width: 180px;
@@ -1051,7 +1056,7 @@ strong {
   }
 
   .section-padding {
-    padding-top: 80px;
+    padding-top: 20px;
     padding-bottom: 80px;
   }
 
