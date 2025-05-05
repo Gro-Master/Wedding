@@ -523,10 +523,6 @@ strong {
   ABOUT              
 -----------------------------------------*/
 
-.about-section
-{
-    
-}
 
 .child-photo {
     width: 180px;
@@ -1056,9 +1052,15 @@ strong {
   }
 
   .section-padding {
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 80px;
   }
+
+    .about-section
+    {
+        padding-top: 0px;
+        padding-bottom: 80px;
+    }
 
   .custom-btn {
     font-size: 18px;
