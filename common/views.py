@@ -33,7 +33,7 @@ TELEGRAM_CHAT_ID = "-4782301339"
 
 def send_to_telegram(name, attending, transfer, drinks, message):
     """Формирует и отправляет сообщение в Telegram."""
-    text = f"📝 Новая анкета:\n\n👤 Имя: {name}\n✅ Придёт: {attending}\n"
+    text = f"📝 Новая анкета:\n\n👤 Имя: {name}\n✅ Присутствие: {attending} \n"
     if attending == "Да":
         text += f"🚗 Нужен трансфер: {transfer}\n 🥂 Напитки: {', '.join(drinks) if drinks else '—'}\n"
     text += f"💬 Сообщение: {message}"

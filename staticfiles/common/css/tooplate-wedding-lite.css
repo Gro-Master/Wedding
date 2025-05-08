@@ -150,13 +150,19 @@ strong {
   background: var(--section-bg-color);
 }
 
+.section-block {
+  padding: 20px;
+}
+
 .section-padding {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-.section-block {
-  padding: 20px;
+.about-section
+{
+    padding-top: 40px;
+    padding-bottom: 80px;
 }
 
 .section-divider {
@@ -522,6 +528,7 @@ strong {
 /*---------------------------------------
   ABOUT              
 -----------------------------------------*/
+
 
 .child-photo {
     width: 180px;
@@ -1050,10 +1057,17 @@ strong {
     font-size: 18px;
   }
 
+
   .section-padding {
-    padding-top: 80px;
+    padding-top: 10px;
     padding-bottom: 80px;
   }
+
+    .about-section
+    {
+        padding-top: 0px;
+        padding-bottom: 80px;
+    }
 
   .custom-btn {
     font-size: 18px;
