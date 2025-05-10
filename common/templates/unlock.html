@@ -120,9 +120,53 @@
 
         }
         
+        .preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 99999;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+          animation: pulse 1s infinite ease-in-out alternate;
+        }
+        
+
+        
+        @keyframes pulse {
+          from { transform: scale(0.8); }
+          to { transform: scale(1.2); }
+        }
+        
+        .preloader.hidden {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .preloader .spinner-rotate {
+            color: red; /* задаёт цвет иконке через currentColor */
+        }
+        
     </style>
 </head>
 <body>
+
+<section class="preloader" id="preloader">
+    <div class="spinner">
+        <span class="spinner-rotate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" class="bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" fill="red" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+        </span>    
+    </div>
+</section>
 
 <video autoplay muted loop playsinline class="video-bg grayscale-video">
     <source src="{% static 'common/videos/unlock_bw.mov' %}" type="video/mp4">
@@ -191,7 +235,21 @@
     });
 
     document.addEventListener("mouseup", endDrag);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          preloader.classList.add("hidden");
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 500);
+        }
+      });
+    });
+
 </script>
 
 </body>
 </html>
+
