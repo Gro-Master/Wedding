@@ -177,7 +177,7 @@
     </div>
 </section>
 
-<video autoplay muted loop playsinline class="video-bg grayscale-video">
+<video autoplay muted loop playsinline class="video-bg grayscale-video" preload="auto">
     <source src="{% static 'common/videos/unlock_bw.mov' %}" type="video/mp4">
 </video>
 
@@ -255,6 +255,22 @@
           }, 500);
         }
       });
+    });
+    
+     document.addEventListener("DOMContentLoaded", function () {
+        const preloader = document.getElementById("preloader");
+        const video = document.querySelector(".video-bg");
+    
+        // Добавляем слушатель для события загрузки видео
+        video.addEventListener("loadeddata", function () {
+            // Прячем прелоадер после загрузки видео
+            if (preloader) {
+                preloader.classList.add("hidden");
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 500);
+            }
+        });
     });
 
 </script>
