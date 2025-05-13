@@ -24,7 +24,16 @@ class MobileRedirectView(RedirectView):
         if "mobile" in user_agent or "android" in user_agent or "iphone" in user_agent:
             return "/unlock/"
         return "/main/"
-
+    
+class OpenGraphMetaView(View):
+    def get(self, request, *args, **kwargs):
+        # Указываем нужные мета-теги
+        return render(request, "main.html", {
+            'request': request,
+            'og_image': 'common/images/cover.jpg',
+            'og_title': 'Приглашение на свадьбу Владислава и Екатерины',
+            'og_description': 'Мы вас очень ждём!!!',
+        })
 logger = logging.getLogger(__name__)
 
 # Замените на свои данные
