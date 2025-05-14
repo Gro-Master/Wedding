@@ -264,15 +264,20 @@
     document.addEventListener("DOMContentLoaded", function () {
         const preloader = document.getElementById("preloader");
         const video = document.querySelector(".video-bg");
-
-        video.addEventListener("canplaythrough", function () {
-            // Видео готово к воспроизведению, скрываем прелоадер
+    
+        video.addEventListener("play", function () {
+            // Видео реально начало воспроизводиться — скрываем прелоадер
             if (preloader) {
                 preloader.classList.add("hidden");
                 setTimeout(() => {
                     preloader.style.display = "none";
                 }, 500);
             }
+        });
+    
+        // Пробуем запустить видео вручную, если возможно
+        video.play().catch((err) => {
+            console.log("Видео не запустилось автоматически:", err);
         });
     });
 
