@@ -75,7 +75,7 @@ class Invitation(View):
 
             # Отправляем в Telegram
             if send_to_telegram(name, attending, transfer, drinks, message):
-                return JsonResponse({"status": "success", "message": "Анкета успешно отправлена!"})
+                return JsonResponse({"status": "success", "message": "Анкета успешно отправлена! Убедительная просьба вступить в нашу телеграм группу, ссылка на нее есть в разделе 'Контакты'"})
             else:
                 return JsonResponse({"status": "error", "message": "Ошибка заполнения анкеты."})
 
